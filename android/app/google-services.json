@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "147334648764",
+    "firebase_url": "https://praytogether-2020.firebaseio.com",
+    "project_id": "praytogether-2020",
+    "storage_bucket": "praytogether-2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147334648764:android:1954eb0d02b07ac4b7d1b9",
+        "android_client_info": {
+          "package_name": "com.example.pray_together"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "147334648764-bfkvkjje2dlj1t1siejacq7i5rcghidd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pray_together",
+            "certificate_hash": "17c39d8d490c3c94fa32c3955ed3d560614934ab"
+          }
+        },
+        {
+          "client_id": "147334648764-11ej9u25o1thmu11f0isvujapeo0a3e8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4mW_HU8wIZ9QMpzMW2w0er4qt_ydc0Bg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "147334648764-11ej9u25o1thmu11f0isvujapeo0a3e8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
