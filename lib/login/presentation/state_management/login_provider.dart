@@ -25,9 +25,14 @@ class LoginProvider with ChangeNotifier {
       idToken: googleSignInAuthentication.idToken,
     );
 
-    final UserCredential authResult =
-        await _auth.signInWithCredential(credential);
-    final User user = authResult.user;
+    UserCredential authResult;
+    User user;
+    if (_auth.currentUser == null) {
+      authResult = await _auth.signInWithCredential(credential);
+      user = authResult.user;
+    } else {
+      user = _auth.currentUser;
+    }
 
     if (user != null) {
       assert(!user.isAnonymous);
