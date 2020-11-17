@@ -1,0 +1,3 @@
+class PrayerUser {
+  String uid;
+}

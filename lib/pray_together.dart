@@ -5,7 +5,9 @@ import 'package:provider/provider.dart';
 
 // ignore: camel_case_types
 class prayTogether extends StatelessWidget {
-  const prayTogether({Key key}) : super(key: key);
+  final GlobalKey<NavigatorState> _mainNavigatorKey =
+      GlobalKey<NavigatorState>();
+  prayTogether({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +16,9 @@ class prayTogether extends StatelessWidget {
         ChangeNotifierProvider<LoginProvider>(create: (_) => LoginProvider()),
       ],
       child: MaterialApp(
+        navigatorKey: _mainNavigatorKey,
         theme: ThemeData.light(),
-        home: loginPage(),
+        home: LoginPage(),
       ),
     );
   }

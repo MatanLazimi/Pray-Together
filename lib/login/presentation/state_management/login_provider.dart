@@ -1,19 +1,25 @@
+import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:pray_together/core/entities/user.dart';
+import 'package:pray_together/login/core/login_failure.dart';
+import 'package:pray_together/login/presentation/pages/register_profile_page.dart';
 
 class LoginProvider with ChangeNotifier {
   final FirebaseAuth _auth;
   final GoogleSignIn googleSignIn;
+  PrayerUser currentLoggedInUser = PrayerUser();
+  GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   LoginProvider()
       : _auth = FirebaseAuth.instance,
         googleSignIn =
             GoogleSignIn(); //Our constractor is empty so we put ';' instead of '{}'
 
-  Future<String> signInWithGoogle() async {
+  Future<Either<PrayerUser, LoginFailure>> _signInWithGoogle() async {
     await Firebase.initializeApp();
 
     final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
@@ -41,12 +47,29 @@ class LoginProvider with ChangeNotifier {
       final User currentUser = _auth.currentUser;
       assert(user.uid == currentUser.uid);
 
+      currentLoggedInUser.uid = user.uid;
+
       print('signInWithGoogle succeeded: $user');
 
-      return '$user';
+      return Left(currentLoggedInUser);
     }
 
-    return null;
+    return Right(LoginFailure());
+  }
+
+  Future signInWithGoogle() async {
+    Either<PrayerUser, LoginFailure> result = await _signInWithGoogle();
+
+    result.fold(
+      (PrayerUser user) {
+        navigatorKey.currentState.push(
+          MaterialPageRoute(
+            builder: (context) => RegisterProfilePage(),
+          ),
+        );
+      },
+      (LoginFailure) {},
+    );
   }
 
   void signOutGoogle() async {

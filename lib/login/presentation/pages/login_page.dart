@@ -1,44 +1,53 @@
+import 'package:custom_navigator/custom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:pray_together/login/presentation/state_management/login_provider.dart';
 import 'package:provider/provider.dart';
 
 // ignore: camel_case_types
-class loginPage extends StatelessWidget {
-  const loginPage({Key key}) : super(key: key);
+class LoginPage extends StatelessWidget {
+  const LoginPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
-            ),
-            logoHeader(),
-            SizedBox(
-              height: 200,
-            ),
-            signInWithGoogle(),
-          ],
+    return CustomNavigator(
+      // CustomNavigator is from the library 'custom_navigator'
+      navigatorKey: Provider.of<LoginProvider>(context, listen: false)
+          .navigatorKey, // Give the second key to your CustomNavigator
+      pageRoute: PageRoutes.materialPageRoute,
+      home: Scaffold(
+        body: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.1,
+              ),
+              logoHeader(),
+              SizedBox(
+                height: 200,
+              ),
+              LoginWithGoogle(),
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-class signInWithGoogle extends StatelessWidget {
-  const signInWithGoogle({Key key}) : super(key: key);
+class LoginWithGoogle extends StatelessWidget {
+  const LoginWithGoogle({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SignInButton(
       Buttons.Google,
+      elevation: 5,
       text: "Sign up with Google",
-      onPressed: () {
-        Provider.of<LoginProvider>(context, listen: false).signInWithGoogle();
+      onPressed: () async {
+        await Provider.of<LoginProvider>(context, listen: false)
+            .signInWithGoogle();
       },
     );
   }
