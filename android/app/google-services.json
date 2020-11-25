@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "147334648764-5tki25el85pshol5i07v8oc4gpch8bhs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pray_together",
+            "certificate_hash": "876d873fc1f04d632b1b58815159ee2757354bfc"
+          }
+        },
+        {
+          "client_id": "147334648764-iu5a1pu5c88sivbka4jipcn0hta35iku.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pray_together",
+            "certificate_hash": "24a1c1fe11822bc10f440c592c9d8d13aa5dcadd"
+          }
+        },
+        {
           "client_id": "147334648764-bfkvkjje2dlj1t1siejacq7i5rcghidd.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
