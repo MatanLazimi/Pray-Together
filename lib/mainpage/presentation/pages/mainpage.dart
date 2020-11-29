@@ -37,10 +37,10 @@ class mainPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Icon(
-                Icons.compass_calibration_outlined,
-                color: Colors.black,
-                size: 30,
+              IconButton(
+                icon: Icon(Icons.compass_calibration_outlined),
+                onPressed: () {},
+                iconSize: 30.0,
               ),
               Icon(
                 Icons.calendar_today,
