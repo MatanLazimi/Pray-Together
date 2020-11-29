@@ -7,6 +7,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:pray_together/core/entities/user.dart';
 import 'package:pray_together/login/core/login_failure.dart';
 import 'package:pray_together/login/presentation/pages/register_profile_page.dart';
+import 'package:pray_together/mainpage/presentation/pages/mainpage.dart';
 
 class LoginProvider with ChangeNotifier {
   final FirebaseAuth _auth;
@@ -64,7 +65,7 @@ class LoginProvider with ChangeNotifier {
       (PrayerUser user) {
         navigatorKey.currentState.push(
           MaterialPageRoute(
-            builder: (context) => RegisterProfilePage(),
+            builder: (context) => mainPage(),
           ),
         );
       },
