@@ -35,32 +35,34 @@ class mainPage extends StatelessWidget {
             ),
           ),
           Row(
+            //crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
             children: [
               IconButton(
                 icon: Icon(Icons.compass_calibration_outlined),
                 onPressed: () {},
-                iconSize: 30.0,
+                iconSize: 25.0,
               ),
-              Icon(
-                Icons.calendar_today,
-                color: Colors.black,
-                size: 30,
+              IconButton(
+                icon: Icon(Icons.calendar_today),
+                onPressed: () {},
+                iconSize: 25.0,
               ),
-              Icon(
-                Icons.location_on,
-                color: Colors.black,
-                size: 55,
+              IconButton(
+                icon: Icon(Icons.location_on),
+                onPressed: () {},
+                iconSize: 41.0,
               ),
-              Icon(
-                Icons.book_sharp,
-                color: Colors.black,
-                size: 30,
+              IconButton(
+                icon: Icon(Icons.book_sharp),
+                onPressed: () {},
+                iconSize: 25.0,
               ),
-              Icon(
-                Icons.account_circle_outlined,
-                color: Colors.black,
-                size: 30,
+              IconButton(
+                icon: Icon(Icons.account_circle_outlined),
+                onPressed: () {},
+                iconSize: 25.0,
               ),
             ],
           ),
