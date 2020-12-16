@@ -16,6 +16,7 @@ class LoginPage extends StatelessWidget {
           .navigatorKey, // Give the second key to your CustomNavigator
       pageRoute: PageRoutes.materialPageRoute,
       home: Scaffold(
+        backgroundColor: Colors.amberAccent,
         body: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,7 +45,7 @@ class LoginWithGoogle extends StatelessWidget {
     return SignInButton(
       Buttons.Google,
       elevation: 5,
-      text: "Sign up with Google",
+      text: "Sign-in with Google",
       onPressed: () async {
         await Provider.of<LoginProvider>(context, listen: false)
             .signInWithGoogle();

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class mainPage extends StatelessWidget {
@@ -8,7 +10,7 @@ class mainPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.amberAccent,
-        title: Text('Pray Together'),
+        title: Text('Pray Together\nמתפללים יחד'),
         centerTitle: true,
       ),
       body: Column(
@@ -34,37 +36,43 @@ class mainPage extends StatelessWidget {
               onPressed: () {},
             ),
           ),
-          Row(
-            //crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          Center(
+            child: Container(
+              color: Colors.amberAccent,
+              child: Row(
+                //crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
-            children: [
-              IconButton(
-                icon: Icon(Icons.compass_calibration_outlined),
-                onPressed: () {},
-                iconSize: 25.0,
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.compass_calibration_outlined),
+                    onPressed: () {},
+                    iconSize: 25.0,
+                    //highlightColor: Colors.amberAccent,
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.calendar_today),
+                    onPressed: () {},
+                    iconSize: 25.0,
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.location_on),
+                    onPressed: () {},
+                    iconSize: 41.0,
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.book_sharp),
+                    onPressed: () {},
+                    iconSize: 25.0,
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.account_circle_outlined),
+                    onPressed: () {},
+                    iconSize: 25.0,
+                  ),
+                ],
               ),
-              IconButton(
-                icon: Icon(Icons.calendar_today),
-                onPressed: () {},
-                iconSize: 25.0,
-              ),
-              IconButton(
-                icon: Icon(Icons.location_on),
-                onPressed: () {},
-                iconSize: 41.0,
-              ),
-              IconButton(
-                icon: Icon(Icons.book_sharp),
-                onPressed: () {},
-                iconSize: 25.0,
-              ),
-              IconButton(
-                icon: Icon(Icons.account_circle_outlined),
-                onPressed: () {},
-                iconSize: 25.0,
-              ),
-            ],
+            ),
           ),
         ],
       ),
