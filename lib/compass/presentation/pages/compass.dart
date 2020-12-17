@@ -3,16 +3,6 @@ import 'package:flutter_compass/flutter_compass.dart';
 import 'dart:math';
 import 'package:flutter/services.dart';
 
-void playCompass() {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp
-  ]) // this forces the app to keep portrait orientation- No Matter What
-      .then((_) {
-    runApp(Compass());
-  });
-}
-
 class Compass extends StatefulWidget {
   //since the direction keeps changing, so should the angle and the compass pointer, thus we use STFUL widget
   @override
