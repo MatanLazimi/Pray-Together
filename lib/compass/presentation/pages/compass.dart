@@ -65,7 +65,7 @@ class CompassRed extends StatelessWidget {
         child: Transform.rotate(
           // to get the angle deviation
           angle: ((_direction ?? 0) * (pi / 180) * -1),
-          child: Image.asset('lib/core/assets/compassred.jpg'),
+          child: Image.asset('lib/compass/core/compass.png'),
         ),
       ),
     );
