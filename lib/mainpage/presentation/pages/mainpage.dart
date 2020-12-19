@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:pray_together/compass/presentation/pages/compass.dart';
 
 class mainPage extends StatelessWidget {
   const mainPage({Key key}) : super(key: key);
@@ -46,7 +47,9 @@ class mainPage extends StatelessWidget {
                 children: [
                   IconButton(
                     icon: Icon(Icons.compass_calibration_outlined),
-                    onPressed: () {},
+                    onPressed: () {
+                      Compass();
+                    },
                     iconSize: 25.0,
                     //highlightColor: Colors.amberAccent,
                   ),
