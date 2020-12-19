@@ -25,9 +25,6 @@ class _CompassState extends State<Compass> {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
       debugShowCheckedModeBanner: false,
       home: CompassRed(direction: _direction),
     );
@@ -47,16 +44,32 @@ class CompassRed extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: const Text('Compass'),
-      ),
-      body: Container(
-        alignment: Alignment.center,
-        color: Colors.white,
-        child: Transform.rotate(
-          // to get the angle deviation
-          angle: ((_direction ?? 0) * (pi / 180) * -1),
-          child: Image.asset('lib/compass/core/compass.png'),
+        backgroundColor: Colors.amberAccent,
+        title: Center(
+          child: Text('מצפן'),
         ),
+      ),
+      body: Column(
+        children: [
+          Container(
+            child: Text(
+              '     צפון - מתפללים לכיוון דרום      \nדרום - מתפללים לכיוון צפון מערב',
+              style: TextStyle(fontSize: 22),
+            ),
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height - 200,
+            alignment: Alignment.center,
+            color: Colors.white,
+            child: Transform.rotate(
+              // to get the angle deviation
+
+              angle: ((_direction ?? 0) * (pi / 180) * -1),
+
+              child: Image.asset('lib/compass/core/compass.png'),
+            ),
+          ),
+        ],
       ),
     );
   }

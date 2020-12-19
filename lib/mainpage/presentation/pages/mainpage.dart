@@ -3,9 +3,14 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:pray_together/compass/presentation/pages/compass.dart';
 
-class mainPage extends StatelessWidget {
+class mainPage extends StatefulWidget {
   const mainPage({Key key}) : super(key: key);
 
+  @override
+  _mainPageState createState() => _mainPageState();
+}
+
+class _mainPageState extends State<mainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +22,7 @@ class mainPage extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            height: 600,
+            height: MediaQuery.of(context).size.height - 137,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 shape: CircleBorder(),
@@ -39,7 +44,7 @@ class mainPage extends StatelessWidget {
           ),
           Center(
             child: Container(
-              color: Colors.amberAccent,
+              //color: Colors.amberAccent,
               child: Row(
                 //crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -48,30 +53,37 @@ class mainPage extends StatelessWidget {
                   IconButton(
                     icon: Icon(Icons.compass_calibration_outlined),
                     onPressed: () {
-                      Compass();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Compass()),
+                      );
                     },
                     iconSize: 25.0,
-                    //highlightColor: Colors.amberAccent,
+                    highlightColor: Colors.amberAccent,
                   ),
                   IconButton(
                     icon: Icon(Icons.calendar_today),
                     onPressed: () {},
                     iconSize: 25.0,
+                    highlightColor: Colors.amberAccent,
                   ),
                   IconButton(
                     icon: Icon(Icons.location_on),
                     onPressed: () {},
                     iconSize: 41.0,
+                    highlightColor: Colors.amberAccent,
                   ),
                   IconButton(
                     icon: Icon(Icons.book_sharp),
                     onPressed: () {},
                     iconSize: 25.0,
+                    highlightColor: Colors.amberAccent,
                   ),
                   IconButton(
                     icon: Icon(Icons.account_circle_outlined),
                     onPressed: () {},
                     iconSize: 25.0,
+                    highlightColor: Colors.amberAccent,
                   ),
                 ],
               ),
