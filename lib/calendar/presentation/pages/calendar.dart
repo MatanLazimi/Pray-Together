@@ -54,11 +54,14 @@ class _HebrewCalendarState extends State<HebrewCalendar> {
               Center(
                 heightFactor: 2,
                 child: Text(
-                    'תאריך עברי: ' + hebrewDateFormatter.format(jewishDate)),
+                    'תאריך עברי: ' + hebrewDateFormatter.format(jewishDate),
+                    style: TextStyle(fontSize: 20)),
               ),
               Center(
-                child: Text('פרשת השבוע: ' +
-                    hebrewDateFormatter.formatWeeklyParsha(jewishCalendar)),
+                child: Text(
+                    'פרשת השבוע: ' +
+                        hebrewDateFormatter.formatWeeklyParsha(jewishCalendar),
+                    style: TextStyle(fontSize: 20)),
               ),
             ],
           ),
