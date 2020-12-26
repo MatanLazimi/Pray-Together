@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:pray_together/calendar/presentation/pages/calendar.dart';
 import 'package:pray_together/compass/presentation/pages/compass.dart';
+import 'package:pray_together/siddurim/presentation/pages/siddurim.dart';
 
 class mainPage extends StatefulWidget {
   const mainPage({Key key}) : super(key: key);
@@ -86,8 +87,13 @@ class _mainPageState extends State<mainPage> {
                     highlightColor: Colors.amberAccent,
                   ),
                   IconButton(
-                    icon: Icon(Icons.book_sharp),
-                    onPressed: () {},
+                    icon: Icon(Icons.auto_stories),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => siddurim()),
+                      );
+                    },
                     iconSize: 25.0,
                     highlightColor: Colors.amberAccent,
                   ),
