@@ -26,6 +26,9 @@ class siddurim extends StatelessWidget {
             //crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Container(
+                child: Image.asset("lib\siddurim\core\imag_siddur.png"),
+              ),
               ElevatedButton(
                   child: Text(
                     'נוסח אשכנזי',

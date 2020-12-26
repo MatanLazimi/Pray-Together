@@ -63,6 +63,7 @@ flutter:
   assets:
     - lib/core/assets/logo.png
     - lib/compass/core/compass.png
+    - lib/siddurim/core/imag_siddur.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
