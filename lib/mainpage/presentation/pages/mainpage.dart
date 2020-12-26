@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:pray_together/calendar/presentation/pages/calendar.dart';
 import 'package:pray_together/compass/presentation/pages/compass.dart';
 
 class mainPage extends StatefulWidget {
@@ -63,13 +64,24 @@ class _mainPageState extends State<mainPage> {
                   ),
                   IconButton(
                     icon: Icon(Icons.calendar_today),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HebrewCalendar()),
+                      );
+                    },
                     iconSize: 25.0,
                     highlightColor: Colors.amberAccent,
                   ),
                   IconButton(
                     icon: Icon(Icons.location_on),
-                    onPressed: () {},
+                    onPressed: () {
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => mainPage()),
+                      // );
+                    },
                     iconSize: 41.0,
                     highlightColor: Colors.amberAccent,
                   ),

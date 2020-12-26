@@ -54,6 +54,7 @@ class LoginWithGoogle extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class logoHeader extends StatelessWidget {
   const logoHeader({Key key}) : super(key: key);
 

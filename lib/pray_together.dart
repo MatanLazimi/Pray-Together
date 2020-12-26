@@ -16,6 +16,7 @@ class prayTogether extends StatelessWidget {
         ChangeNotifierProvider<LoginProvider>(create: (_) => LoginProvider()),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         navigatorKey: _mainNavigatorKey,
         theme: ThemeData.light(),
         home: LoginPage(),

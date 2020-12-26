@@ -16,9 +16,11 @@ class _CompassState extends State<Compass> {
   void initState() {
     super.initState();
     FlutterCompass.events.listen((double direction) {
-      setState(() {
-        _direction = direction;
-      });
+      if (mounted) {
+        setState(() {
+          _direction = direction;
+        });
+      }
     });
   }
 
