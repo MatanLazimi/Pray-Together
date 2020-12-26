@@ -30,6 +30,7 @@ dependencies:
   custom_navigator: ^0.3.0
   flutter_compass: ^0.4.3
   kosher_dart: ^2.0.1
+  flutter_full_pdf_viewer: ^1.0.6
 
   # state managment:
   provider: ^4.3.2+2
@@ -64,6 +65,17 @@ flutter:
     - lib/core/assets/logo.png
     - lib/compass/core/compass.png
     - lib/siddurim/core/imag_siddur.png
+    ## Pdfs:
+    - lib/siddurim/core/pdf/Askenaz_Arvit.pdf
+    - lib/siddurim/core/pdf/Askenaz_Mincha.pdf
+    - lib/siddurim/core/pdf/Askenaz_Shaharit.pdf
+    - lib/siddurim/core/pdf/Edot_Arvit.pdf
+    - lib/siddurim/core/pdf/Edot_Mincha.pdf
+    - lib/siddurim/core/pdf/Edot_Shaharit.pdf
+    - lib/siddurim/core/pdf/Sefard_Arvit.pdf
+    - lib/siddurim/core/pdf/Sefard_Mincha.pdf
+    - lib/siddurim/core/pdf/Sefard_Shaharit.pdf
+    - lib/siddurim/core/pdf/Kriat Hatorah.pdf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

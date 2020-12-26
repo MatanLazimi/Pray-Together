@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'askenaz.dart';
+import 'edothmizrach.dart';
+import 'sefard.dart';
 
 class siddurim extends StatelessWidget {
   const siddurim({Key key}) : super(key: key);
@@ -20,40 +23,79 @@ class siddurim extends StatelessWidget {
           backgroundColor: Colors.amberAccent,
           title: Text('סידורי תפילה'),
           centerTitle: true,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            color: Colors.white,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ),
         body: Center(
           child: Column(
             //crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+            //mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(
+                height: 20,
+              ),
               Container(
-                child: Image.asset("lib\siddurim\core\imag_siddur.png"),
+                height: 160,
+                //width: ,
+                child: Image.asset("lib/siddurim/core/imag_siddur.png"),
+              ),
+              SizedBox(
+                height: 100,
               ),
               ElevatedButton(
-                  child: Text(
-                    'נוסח אשכנזי',
-                    style: TextStyle(color: Colors.black, fontSize: 40),
-                  ),
-                  onPressed: () {}),
+                child: Text(
+                  'נוסח אשכנז',
+                  style: TextStyle(color: Colors.black, fontSize: 40),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => askenaz(),
+                    ),
+                  );
+                },
+              ),
               SizedBox(
                 height: 30,
               ),
               ElevatedButton(
-                  child: Text('נוסח עדות המזרח',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 40,
-                      )),
-                  onPressed: () {}),
+                child: Text('נוסח עדות המזרח',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 40,
+                    )),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => edotHamizrach(),
+                    ),
+                  );
+                },
+              ),
               SizedBox(
                 height: 30,
               ),
               ElevatedButton(
-                  child: Text(
-                    'נוסח ספרד',
-                    style: TextStyle(color: Colors.black, fontSize: 40),
-                  ),
-                  onPressed: () {}),
+                child: Text(
+                  'נוסח ספרד',
+                  style: TextStyle(color: Colors.black, fontSize: 40),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => sefard(),
+                    ),
+                  );
+                },
+              ),
             ],
           ),
         ),
