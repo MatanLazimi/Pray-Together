@@ -16,7 +16,7 @@ class LoginPage extends StatelessWidget {
           .navigatorKey, // Give the second key to your CustomNavigator
       pageRoute: PageRoutes.materialPageRoute,
       home: Scaffold(
-        backgroundColor: Colors.amberAccent,
+        backgroundColor: Colors.teal[400],
         body: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

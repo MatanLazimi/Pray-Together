@@ -11,7 +11,7 @@ class edotHamizrach extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.amberAccent,
+          backgroundColor: Colors.teal[400],
           title: Text('נוסח עדות המזרח'),
           centerTitle: true,
           leading: IconButton(
@@ -22,6 +22,7 @@ class edotHamizrach extends StatelessWidget {
             },
           ),
         ),
+        backgroundColor: Colors.amber[50],
         body: Column(
           children: [],
         ),

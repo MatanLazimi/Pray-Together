@@ -42,10 +42,18 @@ class _HebrewCalendarState extends State<HebrewCalendar> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.amberAccent,
+          backgroundColor: Colors.teal[400],
           title: Text('לוח שנה עברי'),
           centerTitle: true,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            color: Colors.white,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ),
+        backgroundColor: Colors.amber[50],
         body: Container(
           //height: MediaQuery.of(context).size.height,
           child: Column(

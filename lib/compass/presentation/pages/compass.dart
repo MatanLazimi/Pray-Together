@@ -46,7 +46,7 @@ class CompassRed extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        backgroundColor: Colors.amberAccent,
+        backgroundColor: Colors.teal[400],
         title: Center(
           child: Text('מצפן'),
         ),
@@ -62,7 +62,7 @@ class CompassRed extends StatelessWidget {
           Container(
             height: MediaQuery.of(context).size.height - 200,
             alignment: Alignment.center,
-            color: Colors.white,
+            color: Colors.amber[50],
             child: Transform.rotate(
               // to get the angle deviation
 

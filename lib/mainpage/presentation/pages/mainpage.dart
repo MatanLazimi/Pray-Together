@@ -17,10 +17,11 @@ class _mainPageState extends State<mainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.amberAccent,
+        backgroundColor: Colors.teal[400],
         title: Text('Pray Together\nמתפללים יחד'),
         centerTitle: true,
       ),
+      backgroundColor: Colors.amber[50],
       body: Column(
         children: [
           Container(
@@ -28,7 +29,7 @@ class _mainPageState extends State<mainPage> {
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 shape: CircleBorder(),
-                primary: Colors.amberAccent,
+                primary: Colors.teal[400],
                 minimumSize: Size(160, 160),
               ),
               child: Container(
@@ -38,7 +39,7 @@ class _mainPageState extends State<mainPage> {
                 decoration: BoxDecoration(shape: BoxShape.circle),
                 child: Text(
                   'מצא בתי-כנסת קרובים',
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 20, fontFamily: 'Guttman Stam'),
                 ),
               ),
               onPressed: () {},
@@ -61,7 +62,7 @@ class _mainPageState extends State<mainPage> {
                       );
                     },
                     iconSize: 25.0,
-                    highlightColor: Colors.amberAccent,
+                    highlightColor: Colors.teal[400],
                   ),
                   IconButton(
                     icon: Icon(Icons.calendar_today),
@@ -73,7 +74,7 @@ class _mainPageState extends State<mainPage> {
                       );
                     },
                     iconSize: 25.0,
-                    highlightColor: Colors.amberAccent,
+                    highlightColor: Colors.teal[400],
                   ),
                   IconButton(
                     icon: Icon(Icons.location_on),
@@ -84,7 +85,7 @@ class _mainPageState extends State<mainPage> {
                       // );
                     },
                     iconSize: 41.0,
-                    highlightColor: Colors.amberAccent,
+                    highlightColor: Colors.teal[400],
                   ),
                   IconButton(
                     icon: Icon(Icons.auto_stories),
@@ -95,13 +96,13 @@ class _mainPageState extends State<mainPage> {
                       );
                     },
                     iconSize: 25.0,
-                    highlightColor: Colors.amberAccent,
+                    highlightColor: Colors.teal[400],
                   ),
                   IconButton(
                     icon: Icon(Icons.account_circle_outlined),
                     onPressed: () {},
                     iconSize: 25.0,
-                    highlightColor: Colors.amberAccent,
+                    highlightColor: Colors.teal[400],
                   ),
                 ],
               ),

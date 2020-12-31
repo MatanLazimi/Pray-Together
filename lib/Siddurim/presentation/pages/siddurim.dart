@@ -14,13 +14,13 @@ class siddurim extends StatelessWidget {
       theme: ThemeData(
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            primary: Colors.amberAccent,
+            primary: Colors.teal[400],
           ),
         ),
       ),
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.amberAccent,
+          backgroundColor: Colors.teal[400],
           title: Text('סידורי תפילה'),
           centerTitle: true,
           leading: IconButton(
@@ -31,6 +31,7 @@ class siddurim extends StatelessWidget {
             },
           ),
         ),
+        backgroundColor: Colors.amber[50],
         body: Center(
           child: Column(
             //crossAxisAlignment: CrossAxisAlignment.center,
@@ -50,7 +51,10 @@ class siddurim extends StatelessWidget {
               ElevatedButton(
                 child: Text(
                   'נוסח אשכנז',
-                  style: TextStyle(color: Colors.black, fontSize: 40),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                  ),
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -67,8 +71,8 @@ class siddurim extends StatelessWidget {
               ElevatedButton(
                 child: Text('נוסח עדות המזרח',
                     style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 40,
+                      color: Colors.white,
+                      fontSize: 30,
                     )),
                 onPressed: () {
                   Navigator.push(
@@ -85,7 +89,10 @@ class siddurim extends StatelessWidget {
               ElevatedButton(
                 child: Text(
                   'נוסח ספרד',
-                  style: TextStyle(color: Colors.black, fontSize: 40),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                  ),
                 ),
                 onPressed: () {
                   Navigator.push(

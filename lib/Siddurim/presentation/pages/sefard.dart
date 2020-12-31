@@ -11,7 +11,7 @@ class sefard extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.amberAccent,
+          backgroundColor: Colors.teal[400],
           title: Text('נוסח ספרד'),
           centerTitle: true,
           leading: IconButton(
@@ -22,6 +22,7 @@ class sefard extends StatelessWidget {
             },
           ),
         ),
+        backgroundColor: Colors.amber[50],
         body: Column(
           children: [],
         ),
