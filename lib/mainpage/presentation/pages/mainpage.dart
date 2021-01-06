@@ -39,7 +39,8 @@ class _mainPageState extends State<mainPage> {
                 decoration: BoxDecoration(shape: BoxShape.circle),
                 child: Text(
                   'מצא בתי-כנסת קרובים',
-                  style: TextStyle(fontSize: 20, fontFamily: 'Guttman Stam'),
+                  style: TextStyle(fontSize: 20, fontFamily: 'Guttman'),
+                  textDirection: TextDirection.rtl,
                 ),
               ),
               onPressed: () {},
