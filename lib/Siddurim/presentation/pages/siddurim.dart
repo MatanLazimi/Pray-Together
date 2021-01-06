@@ -52,6 +52,7 @@ class siddurim extends StatelessWidget {
                 child: Text(
                   'נוסח אשכנז',
                   style: TextStyle(
+                    fontFamily: 'Guttman',
                     color: Colors.white,
                     fontSize: 30,
                   ),
@@ -71,6 +72,7 @@ class siddurim extends StatelessWidget {
               ElevatedButton(
                 child: Text('נוסח עדות המזרח',
                     style: TextStyle(
+                      fontFamily: 'Guttman',
                       color: Colors.white,
                       fontSize: 30,
                     )),
@@ -90,6 +92,7 @@ class siddurim extends StatelessWidget {
                 child: Text(
                   'נוסח ספרד',
                   style: TextStyle(
+                    fontFamily: 'Guttman',
                     color: Colors.white,
                     fontSize: 30,
                   ),

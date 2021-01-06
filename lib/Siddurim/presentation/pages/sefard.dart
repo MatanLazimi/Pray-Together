@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_full_pdf_viewer/flutter_full_pdf_viewer.dart';
+import 'package:pray_together/siddurim/presentation/state_management/pdfviewer.dart';
 
 class sefard extends StatelessWidget {
   const sefard({Key key}) : super(key: key);
@@ -24,7 +24,96 @@ class sefard extends StatelessWidget {
         ),
         backgroundColor: Colors.amber[50],
         body: Column(
-          children: [],
+          children: [
+            Container(
+              alignment: Alignment.topRight,
+              child: TextButton(
+                child: Text(
+                  'תפילת שחרית',
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Guttman',
+                    fontSize: 30,
+                    color: Colors.black,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => pdfViewerShaharitSefard(),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Container(
+              alignment: Alignment.topRight,
+              child: TextButton(
+                child: Text(
+                  'תפילת מנחה',
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Guttman',
+                    fontSize: 30,
+                    color: Colors.black,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => pdfViewerMinchaSefard(),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Container(
+              alignment: Alignment.topRight,
+              child: TextButton(
+                child: Text(
+                  'תפילת ערבית',
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Guttman',
+                    fontSize: 30,
+                    color: Colors.black,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => pdfViewerArvitSefard(),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Container(
+              alignment: Alignment.topRight,
+              child: TextButton(
+                child: Text(
+                  'קריאת התורה',
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Guttman',
+                    fontSize: 30,
+                    color: Colors.black,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => pdfViewerKriatHatorha(),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

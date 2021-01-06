@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_full_pdf_viewer/flutter_full_pdf_viewer.dart';
+import 'package:pray_together/siddurim/presentation/state_management/pdfviewer.dart';
 
 class askenaz extends StatelessWidget {
   const askenaz({Key key}) : super(key: key);
@@ -12,7 +12,10 @@ class askenaz extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.teal[400],
-          title: Text('נוסח אשכנז'),
+          title: Text(
+            'נוסח אשכנז',
+            textDirection: TextDirection.rtl,
+          ),
           centerTitle: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
@@ -24,7 +27,74 @@ class askenaz extends StatelessWidget {
         ),
         backgroundColor: Colors.amber[50],
         body: Column(
-          children: [],
+          children: [
+            Container(
+              alignment: Alignment.topRight,
+              child: TextButton(
+                child: Text(
+                  'תפילת שחרית',
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Guttman',
+                    fontSize: 30,
+                    color: Colors.black,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => pdfViewerShaharitAskenaz(),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Container(
+              alignment: Alignment.topRight,
+              child: TextButton(
+                child: Text(
+                  'תפילת מנחה',
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Guttman',
+                    fontSize: 30,
+                    color: Colors.black,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => pdfViewerMinchaAskenaz(),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Container(
+              alignment: Alignment.topRight,
+              child: TextButton(
+                child: Text(
+                  'תפילת ערבית',
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Guttman',
+                    fontSize: 30,
+                    color: Colors.black,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => pdfViewerArvitAskenaz(),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

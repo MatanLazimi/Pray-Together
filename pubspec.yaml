@@ -30,7 +30,9 @@ dependencies:
   custom_navigator: ^0.3.0
   flutter_compass: ^0.4.3
   kosher_dart: ^2.0.1
-  flutter_full_pdf_viewer: ^1.0.6
+
+  # Open Pdf file:
+  syncfusion_flutter_pdfviewer: ^18.4.33-beta
 
   # state managment:
   provider: ^4.3.2+2
@@ -88,7 +90,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  fonts:
+    - family: Guttman
+      fonts:
+        - asset: lib/core/fonts/STAM.ttf
+          weight: 700
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
