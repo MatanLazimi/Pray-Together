@@ -1,8 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:pray_together/calendar/presentation/pages/calendar.dart';
 import 'package:pray_together/compass/presentation/pages/compass.dart';
+import 'package:pray_together/nearestsynagogues/presentation/pages/viewnearest.dart';
 import 'package:pray_together/siddurim/presentation/pages/siddurim.dart';
 
 class mainPage extends StatefulWidget {
@@ -46,7 +46,13 @@ class _mainPageState extends State<mainPage> {
                   textDirection: TextDirection.rtl,
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => find_Nearest_Synagogues()),
+                );
+              },
             ),
           ),
           Center(
