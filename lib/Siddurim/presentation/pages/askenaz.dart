@@ -14,6 +14,7 @@ class askenaz extends StatelessWidget {
           backgroundColor: Colors.teal[400],
           title: Text(
             'נוסח אשכנז',
+            style: TextStyle(fontSize: 25, fontFamily: 'Guttman'),
             textDirection: TextDirection.rtl,
           ),
           centerTitle: true,

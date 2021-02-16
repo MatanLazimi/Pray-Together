@@ -12,7 +12,10 @@ class edotHamizrach extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.teal[400],
-          title: Text('נוסח עדות המזרח'),
+          title: Text(
+            'נוסח עדות המזרח',
+            style: TextStyle(fontSize: 25, fontFamily: 'Guttman'),
+          ),
           centerTitle: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back),

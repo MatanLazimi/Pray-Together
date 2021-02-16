@@ -43,7 +43,10 @@ class _HebrewCalendarState extends State<HebrewCalendar> {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.teal[400],
-          title: Text('לוח שנה עברי'),
+          title: Text(
+            'לוח שנה עברי',
+            style: TextStyle(fontSize: 25, fontFamily: 'Guttman'),
+          ),
           centerTitle: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back),

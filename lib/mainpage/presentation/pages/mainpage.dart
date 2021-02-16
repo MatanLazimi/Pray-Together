@@ -18,7 +18,10 @@ class _mainPageState extends State<mainPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal[400],
-        title: Text('Pray Together\nמתפללים יחד'),
+        title: Text(
+          'מתפללים יחד',
+          style: TextStyle(fontSize: 25, fontFamily: 'Guttman'),
+        ),
         centerTitle: true,
       ),
       backgroundColor: Colors.amber[50],

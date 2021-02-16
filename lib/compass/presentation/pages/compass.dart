@@ -48,7 +48,10 @@ class CompassRed extends StatelessWidget {
       appBar: new AppBar(
         backgroundColor: Colors.teal[400],
         title: Center(
-          child: Text('מצפן'),
+          child: Text(
+            'מצפן',
+            style: TextStyle(fontSize: 25, fontFamily: 'Guttman'),
+          ),
         ),
       ),
       body: Column(
@@ -56,7 +59,7 @@ class CompassRed extends StatelessWidget {
           Container(
             child: Text(
               '     צפון - מתפללים לכיוון דרום      \nדרום - מתפללים לכיוון צפון מערב',
-              style: TextStyle(fontSize: 22),
+              style: TextStyle(fontSize: 22, fontFamily: 'Guttman'),
             ),
           ),
           Container(

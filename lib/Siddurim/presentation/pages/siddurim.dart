@@ -21,7 +21,10 @@ class siddurim extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.teal[400],
-          title: Text('סידורי תפילה'),
+          title: Text(
+            'סידורי תפילה',
+            style: TextStyle(fontSize: 25, fontFamily: 'Guttman'),
+          ),
           centerTitle: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
