@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:pray_together/calendar/presentation/pages/calendar.dart';
 import 'package:pray_together/compass/presentation/pages/compass.dart';
 import 'package:pray_together/nearestsynagogues/presentation/pages/viewnearest.dart';
@@ -46,11 +47,38 @@ class _mainPageState extends State<mainPage> {
                   textDirection: TextDirection.rtl,
                 ),
               ),
-              onPressed: () {
+              onPressed: () async {
+                bool serviceEnabled;
+                LocationPermission permission;
+
+                serviceEnabled = await Geolocator.isLocationServiceEnabled();
+                if (!serviceEnabled) {
+                  return Future.error('Location services are disabled.');
+                }
+
+                permission = await Geolocator.checkPermission();
+                if (permission == LocationPermission.deniedForever) {
+                  return Future.error(
+                      'Location permissions are permantly denied, we cannot request permissions.');
+                }
+
+                if (permission == LocationPermission.denied) {
+                  permission = await Geolocator.requestPermission();
+                  if (permission != LocationPermission.whileInUse &&
+                      permission != LocationPermission.always) {
+                    return Future.error(
+                        'Location permissions are denied (actual value: $permission).');
+                  }
+                }
+                Position position = await Geolocator.getCurrentPosition(
+                    desiredAccuracy: LocationAccuracy.high);
+                print('Lat:${position.latitude}, Long:${position.longitude}');
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => find_Nearest_Synagogues()),
+                    builder: (context) =>
+                        find_Nearest_Synagogues(position: position),
+                  ),
                 );
               },
             ),
