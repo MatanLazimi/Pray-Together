@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:pray_together/nearestsynagogues/presentation/state_management/queries.dart';
 
 class find_Nearest_Synagogues extends StatefulWidget {
   Position position;
@@ -27,25 +28,21 @@ class _find_Nearest_SynagoguesState extends State<find_Nearest_Synagogues> {
       appBar: AppBar(
         title: Text("Location"),
       ),
-      body: Center(
+      body: Center(    
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
               "LAT: ${widget.position.latitude}, LNG: ${widget.position.longitude}",
-            )
-            // if (currentPosition != null)
-            //   Text(
-            //     "LAT: ${currentPosition.latitude}, LNG: ${currentPosition.longitude}",
-            //   )
-            // else
-            //   getCurrentLocation()
+            ),
+            
           ],
         ),
       ),
     );
   }
-
+getSynagogues()
   // getCurrentLocation() {
   //   //final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
 
