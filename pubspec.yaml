@@ -35,15 +35,15 @@ dependencies:
   syncfusion_flutter_pdfviewer: ^18.4.33-beta
 
   # state managment:
-  provider: ^4.3.2+2
+  provider: ^5.0.0
 
   # user authentication:
-  firebase_auth: ^0.20.1
-  firebase_core: ^0.7.0
-  google_sign_in: ^4.5.6
+  firebase_auth: ^0.21.0-1.1.nullsafety.3
+  firebase_core: ^0.8.0-1.0.nullsafety.2
+  google_sign_in: ^5.0.0
 
   # user in DB:
-  cloud_firestore: ^0.16.0+1
+  cloud_firestore: ^0.17.0-1.0.nullsafety.2
   cloud_functions: ^0.9.0
 
   # Access to GPS with app:
