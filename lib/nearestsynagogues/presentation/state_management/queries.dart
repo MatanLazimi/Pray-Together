@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-void getSynagogues() {
+Query filteredCollection = FirebaseFirestore.instance
+    .collection('Synagogues')
+    .where('lat', isEqualTo: '31.25');
+
+Future<void> getSynagogues() async {
   //Position temp_position;
-  String synagoguesDB =
-      FirebaseFirestore.instance.collection('Synagogues').doc().get() as String;
-  print(synagoguesDB);
+  //List<DocumentSnapshot> synagoguesDB = FirebaseFirestore.instance.collection('Synagogues').doc().get() as List<DocumentSnapshot>;
 }

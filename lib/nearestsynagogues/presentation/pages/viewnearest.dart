@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
@@ -28,21 +30,18 @@ class _find_Nearest_SynagoguesState extends State<find_Nearest_Synagogues> {
       appBar: AppBar(
         title: Text("Location"),
       ),
-      body: Center(    
-
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
               "LAT: ${widget.position.latitude}, LNG: ${widget.position.longitude}",
             ),
-            
           ],
         ),
       ),
     );
   }
-getSynagogues()
   // getCurrentLocation() {
   //   //final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
 
@@ -70,5 +69,15 @@ getSynagogues()
   //   } catch (e) {
   //     print(e);
   //   }
+  // }
+  // void getLocationGoodUpdates() async {
+  //   StreamSubscription<Position> homeTabPostionStream;
+
+  //   homeTabPostionStream = Geolocator.getPositionStream(
+  //           desiredAccuracy: LocationAccuracy.bestForNavigation,
+  //           distanceFilter: 4)
+  //       .listen((Position pos) {
+  //     currentPosition = pos;
+  //   });
   // }
 }

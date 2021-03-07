@@ -4,6 +4,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:pray_together/calendar/presentation/pages/calendar.dart';
 import 'package:pray_together/compass/presentation/pages/compass.dart';
 import 'package:pray_together/nearestsynagogues/presentation/pages/viewnearest.dart';
+import 'package:pray_together/nearestsynagogues/presentation/state_management/queries.dart';
 import 'package:pray_together/siddurim/presentation/pages/siddurim.dart';
 
 class mainPage extends StatefulWidget {
@@ -70,6 +71,7 @@ class _mainPageState extends State<mainPage> {
                         'Location permissions are denied (actual value: $permission).');
                   }
                 }
+                //getSynagogues();
                 Position position = await Geolocator.getCurrentPosition(
                     desiredAccuracy: LocationAccuracy.high);
                 print('Lat:${position.latitude}, Long:${position.longitude}');
