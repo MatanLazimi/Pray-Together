@@ -71,9 +71,10 @@ class _mainPageState extends State<mainPage> {
                         'Location permissions are denied (actual value: $permission).');
                   }
                 }
-                //getSynagogues();
+                Future<Position> pos_1 = getLocationGoodUpdates();
                 Position position = await Geolocator.getCurrentPosition(
                     desiredAccuracy: LocationAccuracy.high);
+                getSynagogues(position);
                 print('Lat:${position.latitude}, Long:${position.longitude}');
                 Navigator.push(
                   context,

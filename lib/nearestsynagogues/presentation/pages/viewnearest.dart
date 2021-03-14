@@ -70,14 +70,17 @@ class _find_Nearest_SynagoguesState extends State<find_Nearest_Synagogues> {
   //     print(e);
   //   }
   // }
-  // void getLocationGoodUpdates() async {
-  //   StreamSubscription<Position> homeTabPostionStream;
+}
 
-  //   homeTabPostionStream = Geolocator.getPositionStream(
-  //           desiredAccuracy: LocationAccuracy.bestForNavigation,
-  //           distanceFilter: 4)
-  //       .listen((Position pos) {
-  //     currentPosition = pos;
-  //   });
-  // }
+Future<Position> getLocationGoodUpdates() async {
+  StreamSubscription<Position> homeTabPostionStream;
+  Position currentPosition;
+
+  homeTabPostionStream = Geolocator.getPositionStream(
+          desiredAccuracy: LocationAccuracy.bestForNavigation,
+          distanceFilter: 4)
+      .listen((Position pos) {
+    currentPosition = pos;
+  });
+  return currentPosition;
 }
