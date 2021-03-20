@@ -3,12 +3,22 @@ import 'package:geolocator/geolocator.dart';
 
 Future<void> getSynagogues(Position pos) async {
   var x = pos.latitude.toDouble() + 0.00500;
+  int count = 1;
+  print(
+      "sfajkhdsfkjdgsjkgdfjkgdfjkdfgkjdfgkjdfgkjdfgkjdgfjkdfgkjdgfjkdgfjkdgfjkdgfjkfgjkfgdjkdfgkjjkjgkdgfjkdgfkj");
   print(x);
   FirebaseFirestore.instance
       .collection('Synagogues')
       .where('lat', isLessThanOrEqualTo: '${pos.latitude.toDouble() + 0.00500}')
-      .snapshots()
-      .listen((data) => data.docs.forEach((doc) => print(doc["name"])));
+      .where('lat',
+          isGreaterThanOrEqualTo: '${pos.latitude.toDouble() - 0.00500}')
+      // .where('lon',
+      //     isLessThanOrEqualTo: '${pos.longitude.toDouble() + 0.00500}')
+      // .where('lon',
+      //     isGreaterThanOrEqualTo: '${pos.longitude.toDouble() - 0.00500}')
+      .snapshots();
+  // .listen((data) => data.docs.forEach((doc) =>
+  //     print(doc["name"] + " " + doc["lat"] + 'count = ${count++}')));
 }
   /*
   Example for insert data to variable:
