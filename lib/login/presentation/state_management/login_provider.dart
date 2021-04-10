@@ -53,7 +53,7 @@ class LoginProvider with ChangeNotifier {
       await FirebaseFirestore.instance
           .collection('Users')
           .doc(user.uid)
-          .set({'Name': user.displayName, 'admin': None});
+          .set({'Name': user.displayName, 'admin': null});
 
       print('signInWithGoogle succeeded: $user');
 
