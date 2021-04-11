@@ -73,6 +73,8 @@ flutter:
     - lib/core/assets/logo.png
     - lib/compass/core/compass.png
     - lib/siddurim/core/imag_siddur.png
+    - lib/synagoguesprofile/core/imag_home.png
+    
     ## Pdfs:
     - lib/siddurim/core/pdf/Askenaz_Arvit.pdf
     - lib/siddurim/core/pdf/Askenaz_Mincha.pdf
