@@ -7,6 +7,7 @@ import 'package:pray_together/compass/presentation/pages/compass1.dart';
 import 'package:pray_together/nearestsynagogues/presentation/pages/viewnearest.dart';
 import 'package:pray_together/nearestsynagogues/presentation/state_management/queries.dart';
 import 'package:pray_together/siddurim/presentation/pages/siddurim.dart';
+import 'package:pray_together/synagoguesprofile/presentation/pages/syna_profile.dart';
 
 class mainPage extends StatefulWidget {
   const mainPage({Key key}) : super(key: key);
@@ -146,7 +147,12 @@ class _mainPageState extends State<mainPage> {
                   ),
                   IconButton(
                     icon: Icon(Icons.account_circle_outlined),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => syna_profile()),
+                      );
+                    },
                     iconSize: 25.0,
                     highlightColor: Colors.teal[400],
                   ),
