@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:pray_together/calendar/presentation/pages/calendar.dart';
 import 'package:pray_together/compass/presentation/pages/compass.dart';
+import 'package:pray_together/compass/presentation/pages/compass1.dart';
 import 'package:pray_together/nearestsynagogues/presentation/pages/viewnearest.dart';
 import 'package:pray_together/nearestsynagogues/presentation/state_management/queries.dart';
 import 'package:pray_together/siddurim/presentation/pages/siddurim.dart';
@@ -15,6 +16,7 @@ class mainPage extends StatefulWidget {
 }
 
 class _mainPageState extends State<mainPage> {
+  Position cPosition;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +32,7 @@ class _mainPageState extends State<mainPage> {
       body: Column(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height - 137,
+            height: MediaQuery.of(context).size.height - 175,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 shape: CircleBorder(),
@@ -71,16 +73,16 @@ class _mainPageState extends State<mainPage> {
                         'Location permissions are denied (actual value: $permission).');
                   }
                 }
-                Future<Position> pos_1 = getLocationGoodUpdates();
-                Position position = await Geolocator.getCurrentPosition(
-                    desiredAccuracy: LocationAccuracy.high);
-                getSynagogues(position);
-                print('Lat:${position.latitude}, Long:${position.longitude}');
+                cPosition = await Geolocator.getCurrentPosition(
+                    desiredAccuracy: LocationAccuracy.best);
+                //getSynagogues(position);
+                print('Lat:${cPosition.latitude}, Long:${cPosition.longitude}');
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) =>
-                        find_Nearest_Synagogues(position: position),
+                    builder: (context) => find_Nearest_Synagogues(
+                      position: cPosition,
+                    ),
                   ),
                 );
               },
@@ -99,7 +101,10 @@ class _mainPageState extends State<mainPage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Compass()),
+                        MaterialPageRoute(
+                            builder: (context) => compass_App(
+                                  position: cPosition,
+                                )),
                       );
                     },
                     iconSize: 25.0,

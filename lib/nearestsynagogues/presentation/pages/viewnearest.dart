@@ -1,8 +1,12 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dartz/dartz_unsafe.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:geoflutterfire/geoflutterfire.dart';
+import 'package:pray_together/models/syn_user.dart';
 import 'package:pray_together/nearestsynagogues/presentation/state_management/queries.dart';
 
 class find_Nearest_Synagogues extends StatefulWidget {
@@ -21,66 +25,67 @@ class find_Nearest_Synagogues extends StatefulWidget {
 class _find_Nearest_SynagoguesState extends State<find_Nearest_Synagogues> {
   final Geolocator geolocator = Geolocator();
 
-  Position currentPosition;
-  String currentAddress;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Location"),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "LAT: ${widget.position.latitude}, LNG: ${widget.position.longitude}",
-            ),
-          ],
+        backgroundColor: Colors.teal[400],
+        title: Text(
+          'בתי כנסת קרובים',
+          style: TextStyle(fontSize: 25, fontFamily: 'Guttman'),
         ),
+        centerTitle: true,
+      ),
+      backgroundColor: Colors.amber[50],
+      body: StreamBuilder(
+        stream: get_Nearest_Synagogues(widget.position),
+        builder: (BuildContext context,
+            AsyncSnapshot<List<DocumentSnapshot>> snapshot) {
+          return !snapshot.hasData
+              ? Text('There is no nearest Synagogues')
+              : ListView.builder(
+                  itemCount: snapshot.data.length,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      shadowColor: Colors.teal[400],
+                      color: Colors.amber[50],
+                      child: ListTile(
+                        onTap: () {},
+                        title: Text(
+                          '${snapshot.data[index].get('name')}',
+                          style: TextStyle(fontSize: 25, fontFamily: 'Guttman'),
+                          textDirection: TextDirection.rtl,
+                        ),
+                        subtitle: Text(
+                            '${snapshot.data[index].get('street')}' +
+                                ' ' +
+                                '${snapshot.data[index].get('houseNumber')}' +
+                                '\n' +
+                                'נוסח: ' +
+                                '${snapshot.data[index].get('type')}',
+                            textDirection: TextDirection.rtl),
+                        leading: CircleAvatar(
+                          backgroundImage:
+                              AssetImage("lib/core/assets/Tample3.png"),
+                          radius: 45,
+                        ),
+                      ),
+                    );
+                  },
+                );
+        },
       ),
     );
   }
-  // getCurrentLocation() {
-  //   //final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
-
-  //   Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
-  //       .then((Position position) {
-  //     setState(() {
-  //       currentPosition = position;
-  //     });
-  //   }).catchError((e) {
-  //     print(e);
-  //   });
-  // }
-
-  // getAddressFromLatLng() async {
-  //   try {
-  //     List<Placemark> p = await geolocator.placemarkFromCoordinates(
-  //         currentPosition.latitude, currentPosition.longitude);
-
-  //     Placemark place = p[0];
-
-  //     setState(() {
-  //       currentAddress =
-  //           "${place.locality}, ${place.postalCode}, ${place.country}";
-  //     });
-  //   } catch (e) {
-  //     print(e);
-  //   }
-  // }
 }
 
-Future<Position> getLocationGoodUpdates() async {
-  StreamSubscription<Position> homeTabPostionStream;
-  Position currentPosition;
-
-  homeTabPostionStream = Geolocator.getPositionStream(
-          desiredAccuracy: LocationAccuracy.bestForNavigation,
-          distanceFilter: 4)
-      .listen((Position pos) {
-    currentPosition = pos;
-  });
-  return currentPosition;
-}
+// showProfile(BuildContext context, {String profileUid}) {
+//   Navigator.push(
+//     context,
+//     MaterialPageRoute(
+//       builder: (context) => Profile(
+//         profileId: profileUid,
+//       ),
+//     ),
+//   );
+// }
