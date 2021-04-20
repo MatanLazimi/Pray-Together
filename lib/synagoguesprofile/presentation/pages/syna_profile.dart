@@ -1,7 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pray_together/models/syn_user.dart';
 
 class syna_profile extends StatefulWidget {
-  const syna_profile({Key key}) : super(key: key);
+  syn_User synagogues_User;
+  syna_profile({Key key, @required this.synagogues_User}) : super(key: key);
 
   @override
   _syna_profileState createState() => _syna_profileState();
@@ -23,7 +27,7 @@ class _syna_profileState extends State<syna_profile> {
         appBar: AppBar(
           backgroundColor: Colors.teal[400],
           title: Text(
-            '<שם בית הכנסת>',
+            '${widget.synagogues_User.name}',
             style: TextStyle(fontSize: 25, fontFamily: 'Guttman'),
           ),
           centerTitle: true,

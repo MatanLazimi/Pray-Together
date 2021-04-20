@@ -8,6 +8,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:pray_together/models/syn_user.dart';
 import 'package:pray_together/nearestsynagogues/presentation/state_management/queries.dart';
+import 'package:pray_together/synagoguesprofile/presentation/pages/syna_profile.dart';
 
 class find_Nearest_Synagogues extends StatefulWidget {
   Position position;
@@ -24,6 +25,7 @@ class find_Nearest_Synagogues extends StatefulWidget {
 
 class _find_Nearest_SynagoguesState extends State<find_Nearest_Synagogues> {
   final Geolocator geolocator = Geolocator();
+  syn_User synagogues_User;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +52,12 @@ class _find_Nearest_SynagoguesState extends State<find_Nearest_Synagogues> {
                       shadowColor: Colors.teal[400],
                       color: Colors.amber[50],
                       child: ListTile(
-                        onTap: () {},
+                        onTap: () {
+                          synagogues_User =
+                              syn_User.fromDoc(snapshot.data[index]);
+                          showProfile(context,
+                              synagogues_User: synagogues_User);
+                        },
                         title: Text(
                           '${snapshot.data[index].get('name')}',
                           style: TextStyle(fontSize: 25, fontFamily: 'Guttman'),
@@ -79,13 +86,13 @@ class _find_Nearest_SynagoguesState extends State<find_Nearest_Synagogues> {
   }
 }
 
-// showProfile(BuildContext context, {String profileUid}) {
-//   Navigator.push(
-//     context,
-//     MaterialPageRoute(
-//       builder: (context) => Profile(
-//         profileId: profileUid,
-//       ),
-//     ),
-//   );
-// }
+showProfile(BuildContext context, {syn_User synagogues_User}) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => syna_profile(
+        synagogues_User: synagogues_User,
+      ),
+    ),
+  );
+}

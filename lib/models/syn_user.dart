@@ -1,42 +1,39 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class syn_user {
+class syn_User {
   final int id;
   final String uid;
   final String name;
-  final double lat;
-  final double lon;
   final String street;
-  final int houseNumber;
+  final String houseNumber;
   final String type;
   final String gabayName;
   final String phone;
+  final Map<String, GeoPoint> position;
 
-  syn_user({
+  syn_User({
     this.id,
     this.uid,
     this.name,
-    this.lat,
-    this.lon,
     this.street,
     this.houseNumber,
     this.type,
     this.gabayName,
     this.phone,
+    this.position,
   });
 
-  factory syn_user.fromDoc(DocumentSnapshot doc) {
-    return syn_user(
-      id: doc['id'],
-      uid: doc['uid'],
-      name: doc['name'],
-      lat: doc['lat'],
-      lon: doc['lon'],
-      street: doc['street'],
-      houseNumber: doc['houseNumber'],
-      type: doc['type'],
-      gabayName: doc['gabayName'],
-      phone: doc['phone'],
+  factory syn_User.fromDoc(DocumentSnapshot doc) {
+    return syn_User(
+      id: doc.data()['id'],
+      uid: doc.id,
+      name: doc.data()['name'],
+      street: doc.data()['street'],
+      houseNumber: doc.data()['houseNumber'],
+      type: doc.data()['type'],
+      gabayName: doc.data()['gabayName'],
+      phone: doc.data()['phone'],
+      position: doc.data()['posision'],
     );
   }
 }
