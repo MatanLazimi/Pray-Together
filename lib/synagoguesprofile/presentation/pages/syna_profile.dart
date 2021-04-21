@@ -49,64 +49,53 @@ class _syna_profileState extends State<syna_profile> {
                 height: 20,
               ),
               Container(
-                height: 250,
+                alignment: Alignment.center,
+                height: 150,
                 //width: ,
                 child: Image.asset("lib/synagoguesprofile/core/imag_home.png"),
               ),
               SizedBox(
-                height: 50,
+                height: 40,
               ),
-              ElevatedButton(
+              Container(
                 child: Text(
-                  'נוסח',
+                  'שם הגבאי: ${widget.synagogues_User.gabayName}' +
+                      '\n' +
+                      'נייד: ${widget.synagogues_User.phone}' +
+                      '\n' +
+                      'נוסח: ${widget.synagogues_User.type}' +
+                      '\n' +
+                      'כתובת: ${widget.synagogues_User.street}' +
+                      ' ${widget.synagogues_User.houseNumber},\nבאר שבע'
+                          '\n',
+                  textDirection: TextDirection.rtl,
                   style: TextStyle(
                     fontFamily: 'Guttman',
-                    color: Colors.white,
-                    fontSize: 30,
+                    color: Colors.grey[700],
+                    fontSize: 25,
                   ),
                 ),
-                onPressed: () {},
               ),
               SizedBox(
                 height: 30,
               ),
-              ElevatedButton(
-                child: Text('כתובת',
-                    style: TextStyle(
-                      fontFamily: 'Guttman',
-                      color: Colors.white,
-                      fontSize: 30,
-                    )),
-                onPressed: () {},
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              ElevatedButton(
-                child: Text(
-                  'שם הגבאי',
-                  style: TextStyle(
-                    fontFamily: 'Guttman',
-                    color: Colors.white,
-                    fontSize: 30,
+              Container(
+                  child: Column(
+                children: [
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text('הרשמה לשחרית'),
                   ),
-                ),
-                onPressed: () {},
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              ElevatedButton(
-                child: Text(
-                  'טלפון/נייד',
-                  style: TextStyle(
-                    fontFamily: 'Guttman',
-                    color: Colors.white,
-                    fontSize: 30,
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text('הרשמה למנחה'),
                   ),
-                ),
-                onPressed: () {},
-              ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text('הרשמה לערבית'),
+                  ),
+                ],
+              ))
             ],
           ),
         ),
