@@ -148,10 +148,10 @@ class _mainPageState extends State<mainPage> {
                   IconButton(
                     icon: Icon(Icons.account_circle_outlined),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => syna_profile()),
-                      );
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => syna_profile(synagogues_User: synagogues_User)),
+                      // );
                     },
                     iconSize: 25.0,
                     highlightColor: Colors.teal[400],
