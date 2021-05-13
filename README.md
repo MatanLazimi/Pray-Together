@@ -1,6 +1,6 @@
 # pray_together
 
-A new Flutter project.
+Final Project 
 
 ## Getting Started
 
