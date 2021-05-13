@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:pray_together/calendar/presentation/pages/calendar.dart';
+import 'package:pray_together/calendar/presentation/pages/dart_koser_cal.dart';
 import 'package:pray_together/compass/presentation/pages/compass.dart';
 import 'package:pray_together/compass/presentation/pages/compass1.dart';
 import 'package:pray_together/nearestsynagogues/presentation/pages/viewnearest.dart';
@@ -117,7 +118,7 @@ class _mainPageState extends State<mainPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => HebrewCalendar()),
+                            builder: (context) => calendarWidget()),
                       );
                     },
                     iconSize: 25.0,

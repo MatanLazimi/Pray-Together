@@ -33,14 +33,16 @@ dependencies:
   flutter_qiblah: ^2.0.0
   permission_handler: ^6.1.3
   kosher_dart: ^2.0.1
+  syncfusion_flutter_calendar: ^19.1.63
   get: ^4.1.4
+  http: ^0.13.3
 
   # Open Pdf file:
   syncfusion_flutter_pdfviewer: ^19.1.56-beta
 
   # state managment:
   provider: ^5.0.0
-
+  
   # user authentication:
   firebase_auth: ^1.1.0
   firebase_core: ^1.0.3

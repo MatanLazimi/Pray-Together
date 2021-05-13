@@ -1,65 +1,36 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kosher_dart/kosher_dart.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-class HebrewCalendar extends StatefulWidget {
-  HebrewCalendar({Key key}) : super(key: key);
-
-  @override
-  _HebrewCalendarState createState() => _HebrewCalendarState();
-}
-
-class _HebrewCalendarState extends State<HebrewCalendar> {
-  JewishDate jewishDate = JewishDate();
-  JewishCalendar jewishCalendar = JewishCalendar();
-  HebrewDateFormatter hebrewDateFormatter = HebrewDateFormatter();
-
-  @override
-  void initState() {
-    //hebrewDateFormatter.setHebrewFormat(true);
-    //hebrewDateFormatter.setUseGershGershayim(true);
-    super.initState();
-  }
+class calendarWidget extends StatelessWidget {
+  const calendarWidget({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      debugShowCheckedModeBanner: false,
+    return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.teal[400],
-          title: Text(
-            'לוח שנה עברי',
-            style: TextStyle(fontSize: 25, fontFamily: 'Guttman'),
-          ),
-          centerTitle: true,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            color: Colors.white,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ),
-        backgroundColor: Colors.amber[50],
         body: Container(
-          //height: MediaQuery.of(context).size.height,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Center(
-                heightFactor: 2,
-                child: Text(
-                    'תאריך עברי: ' + hebrewDateFormatter.format(jewishDate),
-                    style: TextStyle(fontSize: 20)),
-              ),
-              Center(
-                child: Text(
-                    'פרשת השבוע: ' +
-                        hebrewDateFormatter.formatWeeklyParsha(jewishCalendar),
-                    style: TextStyle(fontSize: 20)),
-              ),
-            ],
+          child: SfCalendar(
+            view: CalendarView.month,
+            monthViewSettings: MonthViewSettings(
+                monthCellStyle: MonthCellStyle(
+                    backgroundColor: Color(0xFF293462),
+                    trailingDatesBackgroundColor: Color(0xff216583),
+                    leadingDatesBackgroundColor: Color(0xff216583),
+                    todayBackgroundColor: Color(0xFFf7be16),
+                    textStyle: TextStyle(fontSize: 12, fontFamily: 'Arial'),
+                    // ignore: deprecated_member_use
+                    todayTextStyle: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Arial'),
+                    trailingDatesTextStyle: TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontSize: 12,
+                        fontFamily: 'Arial'),
+                    leadingDatesTextStyle: TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontSize: 12,
+                        fontFamily: 'Arial'))),
           ),
         ),
       ),
