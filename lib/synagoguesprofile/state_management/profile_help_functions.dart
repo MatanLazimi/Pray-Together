@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart' as intl;
 import 'package:pray_together/models/syn_user.dart';
 
 /////////////////////////////////////////// Help Functions: ////////////////////////////////////////////////////
@@ -115,11 +116,14 @@ get_Arvit_Capsule(String syn_Uid, String user_Name, String syn_Name) async {
 }
 
 //Get the Current time (Local Time)
-// get_Current_Time() {
-//   final String formattedDateTime =
-//       DateFormat('dd-MM-yyyy \n kk:mm').format(DateTime.now()).toString();
-//   print(formattedDateTime);
-// }
+get_Current_Time() {
+  final String formattedDateTime =
+      intl.DateFormat('dd-MM-yyyy \n kk:mm').format(DateTime.now()).toString();
+  String timeFromatted = intl.DateFormat.Hm().format(DateTime.now()).toString();
+  print(timeFromatted);
+  print(formattedDateTime);
+  return timeFromatted;
+}
 
 //check if the list is full:
 Future<bool> is_Shaharit_List_Full(String syn_Uid) async {
@@ -171,3 +175,6 @@ Future<bool> is_Arvit_List_Full(String syn_Uid) async {
     }
   }
 }
+
+// delete docs for prayers:
+
