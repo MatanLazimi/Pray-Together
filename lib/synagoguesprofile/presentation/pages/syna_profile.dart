@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:pray_together/models/syn_user.dart';
 import 'package:get/get.dart';
 import 'package:pray_together/synagoguesprofile/state_management/profile_help_functions.dart';
