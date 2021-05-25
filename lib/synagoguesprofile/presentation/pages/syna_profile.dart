@@ -22,6 +22,7 @@ class _syna_profileState extends State<syna_profile> {
 
   @override
   void initState() {
+    //cleanDB();
     Shaharit_flag = is_Shaharit_List_Full(widget.synagogues_User.uid);
     Mincha_flag = is_Mincha_List_Full(widget.synagogues_User.uid);
     Arvit_flag = is_Arvit_List_Full(widget.synagogues_User.uid);
@@ -142,19 +143,7 @@ class _syna_profileState extends State<syna_profile> {
                               );
                             } else {
                               return ElevatedButton(
-                                child: Ink(
-                                  child: Text(' הרשמה למנחה'),
-                                  decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                        colors: [Colors.red, Colors.yellow]),
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                    padding: EdgeInsets.zero,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(20))),
+                                child: Text(' הרשמה למנחה'),
                                 onPressed: () {
                                   get_Mincha_Capsule(widget.synagogues_User.uid,
                                       user_Name, widget.synagogues_User.name);

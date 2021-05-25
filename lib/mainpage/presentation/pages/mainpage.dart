@@ -9,6 +9,7 @@ import 'package:pray_together/nearestsynagogues/presentation/pages/viewnearest.d
 import 'package:pray_together/nearestsynagogues/presentation/state_management/queries.dart';
 import 'package:pray_together/siddurim/presentation/pages/siddurim.dart';
 import 'package:pray_together/synagoguesprofile/presentation/pages/syna_profile.dart';
+import 'package:pray_together/synagoguesprofile/state_management/profile_help_functions.dart';
 
 class mainPage extends StatefulWidget {
   const mainPage({Key key}) : super(key: key);
@@ -34,7 +35,7 @@ class _mainPageState extends State<mainPage> {
       body: Column(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height - 175,
+            height: MediaQuery.of(context).size.height - 176,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 shape: CircleBorder(),
@@ -79,6 +80,7 @@ class _mainPageState extends State<mainPage> {
                     desiredAccuracy: LocationAccuracy.best);
                 //getSynagogues(position);
                 print('Lat:${cPosition.latitude}, Long:${cPosition.longitude}');
+                cleanDB();
                 Navigator.push(
                   context,
                   MaterialPageRoute(

@@ -22,6 +22,7 @@ get_Shaharit_Capsule(String syn_Uid, String user_Name, String syn_Name) async {
   if (!doc.exists) {
     doc_Ref.set({
       ' Syn_Name': syn_Name,
+      ' Created': FieldValue.serverTimestamp(),
       'Shaharit': FieldValue.arrayUnion([]),
       'Mincha': FieldValue.arrayUnion([]),
       'Arvit': FieldValue.arrayUnion([]),
@@ -60,6 +61,7 @@ get_Mincha_Capsule(String syn_Uid, String user_Name, String syn_Name) async {
   if (!doc.exists) {
     doc_Ref.set({
       ' Syn_Name': syn_Name,
+      ' Created': FieldValue.serverTimestamp(),
       'Shaharit': FieldValue.arrayUnion([]),
       'Mincha': FieldValue.arrayUnion([]),
       'Arvit': FieldValue.arrayUnion([]),
@@ -98,6 +100,7 @@ get_Arvit_Capsule(String syn_Uid, String user_Name, String syn_Name) async {
   if (!doc.exists) {
     doc_Ref.set({
       ' Syn_Name': syn_Name,
+      ' Created': FieldValue.serverTimestamp(),
       'Shaharit': FieldValue.arrayUnion([]),
       'Mincha': FieldValue.arrayUnion([]),
       'Arvit': FieldValue.arrayUnion([]),
@@ -177,4 +180,24 @@ Future<bool> is_Arvit_List_Full(String syn_Uid) async {
 }
 
 // delete docs for prayers:
+void cleanDB() {
+  DateTime currentDate = DateTime.now();
+  DateTime midnightTime =
+      DateTime(currentDate.year, currentDate.month, currentDate.day, 0, 0);
+  //Convert the Date to Timestamp
+  Timestamp midnightTimestamp = Timestamp.fromDate(midnightTime);
 
+  Query doc_Ref = FirebaseFirestore.instance
+      .collection('Capsules')
+      .where(' Created', isLessThan: midnightTimestamp);
+
+  doc_Ref.get().then((value) {
+    value.docs.forEach((element) {
+      FirebaseFirestore.instance
+          .collection('Capsules')
+          .doc(element.id)
+          .delete()
+          .then((value) => print("Doc Deleted"));
+    });
+  });
+}
