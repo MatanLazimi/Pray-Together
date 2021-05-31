@@ -1,15 +1,18 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:pray_together/calendar/presentation/pages/calendar.dart';
 import 'package:pray_together/calendar/presentation/pages/dart_koser_cal.dart';
 import 'package:pray_together/compass/presentation/pages/compass.dart';
 import 'package:pray_together/compass/presentation/pages/compass1.dart';
+import 'package:pray_together/login/presentation/state_management/login_provider.dart';
 import 'package:pray_together/nearestsynagogues/presentation/pages/viewnearest.dart';
 import 'package:pray_together/nearestsynagogues/presentation/state_management/queries.dart';
 import 'package:pray_together/siddurim/presentation/pages/siddurim.dart';
 import 'package:pray_together/synagoguesprofile/presentation/pages/syna_profile.dart';
 import 'package:pray_together/synagoguesprofile/state_management/profile_help_functions.dart';
+import 'package:provider/provider.dart';
 
 class mainPage extends StatefulWidget {
   const mainPage({Key key}) : super(key: key);
@@ -29,6 +32,24 @@ class _mainPageState extends State<mainPage> {
           'מתפללים יחד',
           style: TextStyle(fontSize: 25, fontFamily: 'Guttman'),
         ),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: IconButton(
+              icon: Icon(
+                Icons.account_circle,
+                textDirection: TextDirection.rtl,
+              ),
+              hoverColor: Colors.amber[50],
+              tooltip: 'התנתקות מהמערכת',
+              onPressed: () async {
+                Provider.of<LoginProvider>(context, listen: false)
+                    .signOutGoogle();
+                Navigator.pop(context);
+              },
+            ),
+          ),
+        ],
         centerTitle: true,
       ),
       backgroundColor: Colors.amber[50],
@@ -77,7 +98,8 @@ class _mainPageState extends State<mainPage> {
                   }
                 }
                 cPosition = await Geolocator.getCurrentPosition(
-                    desiredAccuracy: LocationAccuracy.best);
+                    desiredAccuracy: LocationAccuracy.best,
+                    forceAndroidLocationManager: true);
                 //getSynagogues(position);
                 print('Lat:${cPosition.latitude}, Long:${cPosition.longitude}');
                 cleanDB();

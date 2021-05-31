@@ -179,6 +179,22 @@ Future<bool> is_Arvit_List_Full(String syn_Uid) async {
   }
 }
 
+//Prayer List - give the synagouge id and the prayer name, its return the list of the Praying:
+prayingList(String synId, String prayerName) async {
+  List listOfPraying = [];
+  await FirebaseFirestore.instance
+      .collection('Capsules')
+      .doc(synId)
+      .get()
+      .then((snapshot) {
+    listOfPraying.add(snapshot.data()[prayerName]);
+  });
+  for (var i = 0; i < listOfPraying.length; i++) {
+    print(listOfPraying[i]);
+  }
+  return listOfPraying;
+}
+
 // delete docs for prayers:
 void cleanDB() {
   DateTime currentDate = DateTime.now();

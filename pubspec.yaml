@@ -38,6 +38,9 @@ dependencies:
   http: ^0.13.3
   awesome_dialog: ^2.0.0
 
+  #Admin users:
+  shared_preferences: ^2.0.6
+
   # Open Pdf file:
   syncfusion_flutter_pdfviewer: ^19.1.56-beta
 
