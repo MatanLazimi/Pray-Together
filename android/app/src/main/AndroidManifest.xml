@@ -20,6 +20,10 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="pray_together"
         android:icon="@mipmap/ic_launcher">
+          <meta-data 
+               android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyD4mW_HU8wIZ9QMpzMW2w0er4qt_ydc0Bg"
+          />
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
