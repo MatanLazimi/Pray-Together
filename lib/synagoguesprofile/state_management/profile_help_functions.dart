@@ -8,6 +8,7 @@ import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:pray_together/models/syn_user.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /////////////////////////////////////////// Help Functions: ////////////////////////////////////////////////////
 
@@ -176,6 +177,42 @@ Future<bool> is_Arvit_List_Full(String syn_Uid) async {
     } else {
       return false;
     }
+  }
+}
+
+// Open Waze in app and if its not install open with browser
+void launchWaze(
+    Position currentPos, double navigateToLat, double navigateToLon) async {
+  var url =
+      'waze://directions?navigate=yes&to=ll.${navigateToLat.toString()}%2C${navigateToLon.toString()}&from=ll.${currentPos.latitude.toString()}%2C${currentPos.longitude.toString()}';
+  var fallbackUrl =
+      'https://www.waze.com/he/live-map/directions?navigate=yes&to=ll.${navigateToLat.toString()}%2C${navigateToLon.toString()}&from=ll.${currentPos.latitude.toString()}%2C${currentPos.longitude.toString()}';
+  try {
+    bool launched =
+        await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
+    if (!launched) {
+      await launch(url, forceSafariVC: false, forceWebView: false);
+    }
+  } catch (e) {
+    await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
+  }
+}
+
+// Open Google Maps in app and if its not install open with browser
+void launchGoogleMaps(
+    Position currentPos, double navigateToLat, double navigateToLon) async {
+  var url =
+      'google.navigation:q=${navigateToLat.toString()},${navigateToLon.toString()}';
+  var fallbackUrl =
+      'https://www.google.com/maps/search/?api=1&query=${navigateToLat.toString()},${navigateToLon.toString()}';
+  try {
+    bool launched =
+        await launch(url, forceSafariVC: false, forceWebView: false);
+    if (!launched) {
+      await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
+    }
+  } catch (e) {
+    await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
   }
 }
 

@@ -2,9 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:geoflutterfire/geoflutterfire.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:pray_together/models/syn_user.dart';
 import 'package:get/get.dart';
 import 'package:pray_together/synagoguesprofile/state_management/profile_help_functions.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class syna_profile extends StatefulWidget {
   syn_User synagogues_User;
@@ -16,17 +19,29 @@ class syna_profile extends StatefulWidget {
 
 class _syna_profileState extends State<syna_profile> {
   String user_Name = FirebaseAuth.instance.currentUser.displayName;
+  Position currentPos;
   Future<bool> Shaharit_flag;
   Future<bool> Mincha_flag;
   Future<bool> Arvit_flag;
 
   @override
   void initState() {
-    //cleanDB();
     Shaharit_flag = is_Shaharit_List_Full(widget.synagogues_User.uid);
     Mincha_flag = is_Mincha_List_Full(widget.synagogues_User.uid);
     Arvit_flag = is_Arvit_List_Full(widget.synagogues_User.uid);
     super.initState();
+    getCurrentLocation();
+  }
+
+  getCurrentLocation() {
+    Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
+        .then((Position position) {
+      setState(() {
+        currentPos = position;
+      });
+    }).catchError((e) {
+      print(e);
+    });
   }
 
   @override
@@ -178,6 +193,11 @@ class _syna_profileState extends State<syna_profile> {
                           },
                         ),
                       ),
+
+                      navLogos(
+                        synagogues_User: widget.synagogues_User,
+                        currentPos: currentPos,
+                      ),
                     ],
                   ),
                 ),
@@ -185,6 +205,41 @@ class _syna_profileState extends State<syna_profile> {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+// Class for Navigate logos:
+class navLogos extends StatelessWidget {
+  final syn_User synagogues_User;
+  final Position currentPos;
+  const navLogos(
+      {Key key, @required this.synagogues_User, @required this.currentPos})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        children: [
+          IconButton(
+            icon: Image.asset('lib/core/assets/logo_waze.png'),
+            iconSize: 30,
+            onPressed: () {
+              launchWaze(currentPos, synagogues_User.position.latitude,
+                  synagogues_User.position.longitude);
+            },
+          ),
+          IconButton(
+            icon: Image.asset('lib/core/assets/Google Maps logo.png'),
+            iconSize: 30,
+            onPressed: () {
+              launchGoogleMaps(currentPos, synagogues_User.position.latitude,
+                  synagogues_User.position.longitude);
+            },
+          ),
+        ],
       ),
     );
   }

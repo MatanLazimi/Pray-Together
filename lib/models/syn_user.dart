@@ -9,7 +9,7 @@ class syn_User {
   final String type;
   final String gabayName;
   final String phone;
-  final Map<String, GeoPoint> position;
+  final GeoPoint position;
 
   syn_User({
     this.id,
@@ -33,7 +33,8 @@ class syn_User {
       type: doc.data()['type'],
       gabayName: doc.data()['gabayName'],
       phone: doc.data()['phone'],
-      position: doc.data()['posision'],
+      //position: doc.data()['position']['gepoint'],
+      position: doc.get(FieldPath(['position', 'geopoint'])),
     );
   }
 }
