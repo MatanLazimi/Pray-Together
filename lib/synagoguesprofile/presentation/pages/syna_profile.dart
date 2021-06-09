@@ -77,39 +77,36 @@ class _syna_profileState extends State<syna_profile> {
             //crossAxisAlignment: CrossAxisAlignment.center,
             //mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                alignment: Alignment.center,
-                height: 150,
-                //width: ,
-                child: Image.asset("lib/synagoguesprofile/core/imag_home.png"),
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              Container(
-                child: Text(
-                  'שם הגבאי: ${widget.synagogues_User.gabayName}' +
-                      '\n' +
-                      'נייד: ${widget.synagogues_User.phone}' +
-                      '\n' +
-                      'נוסח: ${widget.synagogues_User.type}' +
-                      '\n' +
-                      'כתובת: ${widget.synagogues_User.street}' +
-                      ' ${widget.synagogues_User.houseNumber},\nבאר שבע' +
-                      '\n',
-                  textDirection: TextDirection.rtl,
-                  style: TextStyle(
-                    fontFamily: 'Guttman',
-                    color: Colors.grey[700],
-                    fontSize: 25,
+              Row(
+                children: [
+                  SizedBox(
+                    width: 10,
                   ),
+                  Align(
+                    alignment: Alignment(0.8, 0.8),
+                    child: buildDetails(),
+                  ),
+                  SizedBox(
+                    width: 30,
+                  ),
+                  Align(
+                    alignment: Alignment(0.8, 0.8),
+                    child: buildImage(),
+                  ),
+                ],
+              ),
+              Center(
+                child: navLogos(
+                  synagogues_User: widget.synagogues_User,
+                  currentPos: currentPos,
                 ),
               ),
-              SizedBox(
-                height: 30,
+              Stack(
+                children: [
+                  Positioned(
+                    child: zmaniTfila(),
+                  ),
+                ],
               ),
               Container(
                 child: SizedBox(
@@ -193,11 +190,6 @@ class _syna_profileState extends State<syna_profile> {
                           },
                         ),
                       ),
-
-                      navLogos(
-                        synagogues_User: widget.synagogues_User,
-                        currentPos: currentPos,
-                      ),
                     ],
                   ),
                 ),
@@ -208,6 +200,56 @@ class _syna_profileState extends State<syna_profile> {
       ),
     );
   }
+
+  // Name
+  Widget buildDetails() {
+    return Container(
+      child: Text(
+        'שם הגבאי: ${widget.synagogues_User.gabayName}' +
+            '\n' +
+            'נייד: ${widget.synagogues_User.phone}' +
+            '\n' +
+            'נוסח: ${widget.synagogues_User.type}' +
+            '\n' +
+            'כתובת: ${widget.synagogues_User.street}' +
+            ' ${widget.synagogues_User.houseNumber},\nבאר שבע' +
+            '\n',
+        textDirection: TextDirection.rtl,
+        style: TextStyle(
+          fontFamily: 'Guttman',
+          color: Colors.grey[700],
+          fontSize: 17,
+        ),
+      ),
+    );
+  }
+}
+
+// Build Image for syna:
+Widget buildImage() {
+  final image = AssetImage("lib/synagoguesprofile/core/imag_home.png");
+  return ClipOval(
+    child: Material(
+      color: Colors.transparent,
+      child: Ink.image(
+        image: image,
+        fit: BoxFit.cover,
+        width: 128,
+        height: 128,
+      ),
+    ),
+  );
+}
+
+// Loach zmani tphila:
+Widget zmaniTfila() {
+  return Container(
+    child: Column(
+      children: [
+        Text("data"),
+      ],
+    ),
+  );
 }
 
 // Class for Navigate logos:
@@ -221,8 +263,12 @@ class navLogos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       child: Row(
         children: [
+          SizedBox(
+            width: 50,
+          ),
           IconButton(
             icon: Image.asset('lib/core/assets/logo_waze.png'),
             iconSize: 30,
@@ -238,6 +284,18 @@ class navLogos extends StatelessWidget {
               launchGoogleMaps(currentPos, synagogues_User.position.latitude,
                   synagogues_User.position.longitude);
             },
+          ),
+          SizedBox(
+            width: 50,
+          ),
+          Text(
+            "נווט לבית הכנסת:",
+            textDirection: TextDirection.rtl,
+            style: TextStyle(
+              fontFamily: 'Guttman',
+              color: Colors.grey[700],
+              fontSize: 17,
+            ),
           ),
         ],
       ),
