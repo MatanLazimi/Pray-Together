@@ -77,6 +77,9 @@ class _syna_profileState extends State<syna_profile> {
             //crossAxisAlignment: CrossAxisAlignment.center,
             //mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(
+                height: 20,
+              ),
               Row(
                 children: [
                   SizedBox(
@@ -101,99 +104,122 @@ class _syna_profileState extends State<syna_profile> {
                   currentPos: currentPos,
                 ),
               ),
-              Stack(
+              SizedBox(
+                height: 60,
+              ),
+              Row(
                 children: [
-                  Positioned(
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Align(
+                    alignment: Alignment(0.8, 0.8),
+                    child: Container(
+                      child: SizedBox(
+                        height: 140,
+                        child: Column(
+                          children: [
+                            Text(
+                              'הרשמה לקפסולת תפילה:',
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                decoration: TextDecoration.underline,
+                                fontFamily: 'Guttman',
+                                color: Colors.grey[700],
+                                fontSize: 15,
+                              ),
+                            ),
+                            Expanded(
+                              child: FutureBuilder(
+                                future: Shaharit_flag,
+                                builder: (context, snapshot) {
+                                  if (snapshot.hasData && snapshot.data) {
+                                    return ElevatedButton(
+                                      child: Text('הרשמה לשחרית'),
+                                      onPressed: null,
+                                    );
+                                  } else {
+                                    return ElevatedButton(
+                                      child: Text('הרשמה לשחרית'),
+                                      onPressed: () {
+                                        get_Shaharit_Capsule(
+                                            widget.synagogues_User.uid,
+                                            user_Name,
+                                            widget.synagogues_User.name);
+                                      },
+                                    );
+                                  }
+                                },
+                              ),
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            //Expand For Mincha:
+                            Expanded(
+                              child: FutureBuilder(
+                                future: Mincha_flag,
+                                builder: (context, snapshot) {
+                                  if (snapshot.hasData && snapshot.data) {
+                                    return ElevatedButton(
+                                      child: Text(' הרשמה למנחה'),
+                                      onPressed: null,
+                                    );
+                                  } else {
+                                    return ElevatedButton(
+                                      child: Text(' הרשמה למנחה'),
+                                      onPressed: () {
+                                        get_Mincha_Capsule(
+                                            widget.synagogues_User.uid,
+                                            user_Name,
+                                            widget.synagogues_User.name);
+                                      },
+                                    );
+                                  }
+                                },
+                              ),
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            //Expand For Arvit:
+                            Expanded(
+                              child: FutureBuilder(
+                                future: Arvit_flag,
+                                builder: (context, snapshot) {
+                                  if (snapshot.hasData && snapshot.data) {
+                                    return ElevatedButton(
+                                      child: Text(' הרשמה לערבית'),
+                                      onPressed: null,
+                                    );
+                                  } else {
+                                    return ElevatedButton(
+                                      child: Text(' הרשמה לערבית'),
+                                      onPressed: () {
+                                        get_Arvit_Capsule(
+                                            widget.synagogues_User.uid,
+                                            user_Name,
+                                            widget.synagogues_User.name);
+                                      },
+                                    );
+                                  }
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 35,
+                  ),
+                  Align(
+                    alignment: Alignment(0.8, 0.8),
                     child: zmaniTfila(),
                   ),
                 ],
               ),
-              Container(
-                child: SizedBox(
-                  height: 140,
-                  child: Column(
-                    children: [
-                      Text(
-                        'הרשמה לקפסולת תפילה:',
-                        textDirection: TextDirection.rtl,
-                      ),
-                      Expanded(
-                        child: FutureBuilder(
-                          future: Shaharit_flag,
-                          builder: (context, snapshot) {
-                            if (snapshot.hasData && snapshot.data) {
-                              return ElevatedButton(
-                                child: Text('הרשמה לשחרית'),
-                                onPressed: null,
-                              );
-                            } else {
-                              return ElevatedButton(
-                                child: Text('הרשמה לשחרית'),
-                                onPressed: () {
-                                  get_Shaharit_Capsule(
-                                      widget.synagogues_User.uid,
-                                      user_Name,
-                                      widget.synagogues_User.name);
-                                },
-                              );
-                            }
-                          },
-                        ),
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      //Expand For Mincha:
-                      Expanded(
-                        child: FutureBuilder(
-                          future: Mincha_flag,
-                          builder: (context, snapshot) {
-                            if (snapshot.hasData && snapshot.data) {
-                              return ElevatedButton(
-                                child: Text(' הרשמה למנחה'),
-                                onPressed: null,
-                              );
-                            } else {
-                              return ElevatedButton(
-                                child: Text(' הרשמה למנחה'),
-                                onPressed: () {
-                                  get_Mincha_Capsule(widget.synagogues_User.uid,
-                                      user_Name, widget.synagogues_User.name);
-                                },
-                              );
-                            }
-                          },
-                        ),
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      //Expand For Arvit:
-                      Expanded(
-                        child: FutureBuilder(
-                          future: Arvit_flag,
-                          builder: (context, snapshot) {
-                            if (snapshot.hasData && snapshot.data) {
-                              return ElevatedButton(
-                                child: Text(' הרשמה לערבית'),
-                                onPressed: null,
-                              );
-                            } else {
-                              return ElevatedButton(
-                                child: Text(' הרשמה לערבית'),
-                                onPressed: () {
-                                  get_Arvit_Capsule(widget.synagogues_User.uid,
-                                      user_Name, widget.synagogues_User.name);
-                                },
-                              );
-                            }
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              )
             ],
           ),
         ),
@@ -245,8 +271,63 @@ Widget buildImage() {
 Widget zmaniTfila() {
   return Container(
     child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("data"),
+        Text(
+          "זמני תפילה:",
+          textDirection: TextDirection.rtl,
+          style: TextStyle(
+            decoration: TextDecoration.underline,
+            fontFamily: 'Guttman',
+            color: Colors.grey[700],
+            fontSize: 19,
+          ),
+        ),
+        Text(
+          "הנץ החמה:  05:48",
+          textDirection: TextDirection.rtl,
+          style: TextStyle(
+            fontFamily: 'Guttman',
+            color: Colors.grey[700],
+            fontSize: 15,
+          ),
+        ),
+        Text(
+          "תפילת שחרית:  07:15",
+          textDirection: TextDirection.rtl,
+          style: TextStyle(
+            fontFamily: 'Guttman',
+            color: Colors.grey[700],
+            fontSize: 15,
+          ),
+        ),
+        Text(
+          "תפילת מנחה:  18:50",
+          textDirection: TextDirection.rtl,
+          style: TextStyle(
+            fontFamily: 'Guttman',
+            color: Colors.grey[700],
+            fontSize: 15,
+          ),
+        ),
+        Text(
+          "שקיעה:  19:43",
+          textDirection: TextDirection.rtl,
+          style: TextStyle(
+            fontFamily: 'Guttman',
+            color: Colors.grey[700],
+            fontSize: 15,
+          ),
+        ),
+        Text(
+          "תפילת ערבית:  19:52",
+          textDirection: TextDirection.rtl,
+          style: TextStyle(
+            fontFamily: 'Guttman',
+            color: Colors.grey[700],
+            fontSize: 15,
+          ),
+        ),
       ],
     ),
   );
