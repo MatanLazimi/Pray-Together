@@ -4,6 +4,8 @@ import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:pray_together/login/presentation/state_management/login_provider.dart';
 import 'package:provider/provider.dart';
 
+import 'email_login.dart';
+
 // ignore: camel_case_types
 class LoginPage extends StatelessWidget {
   const LoginPage({Key key}) : super(key: key);
@@ -25,10 +27,31 @@ class LoginPage extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.1,
               ),
               logoHeader(),
+              Text(
+                "Pray Together",
+                style: TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'Guttman',
+                    color: Colors.amber[50]),
+              ),
               SizedBox(
                 height: 200,
               ),
               LoginWithGoogle(),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "_________OR_________",
+                style: TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'Guttman',
+                    color: Colors.amber[50]),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              mailAndPassword(),
             ],
           ),
         ),
@@ -49,6 +72,27 @@ class LoginWithGoogle extends StatelessWidget {
       onPressed: () async {
         await Provider.of<LoginProvider>(context, listen: false)
             .signInWithGoogle();
+      },
+    );
+  }
+}
+
+class mailAndPassword extends StatelessWidget {
+  const mailAndPassword({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SignInButton(
+      Buttons.Email,
+      elevation: 5,
+      text: "Sign In With Email",
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => email_login(),
+          ),
+        );
       },
     );
   }

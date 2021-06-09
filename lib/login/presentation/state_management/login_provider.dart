@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:pray_together/core/entities/user.dart';
 import 'package:pray_together/login/core/login_failure.dart';
-import 'package:pray_together/login/presentation/pages/register_profile_page.dart';
+import 'package:pray_together/login/presentation/pages/email_login.dart';
 import 'package:pray_together/mainpage/presentation/pages/mainpage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
